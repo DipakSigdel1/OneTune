@@ -17,7 +17,7 @@
         android:name=".MusicApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Stream Music"
+        android:label="OneTune"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.NoTitleBar">
@@ -32,6 +32,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- MediaSessionService for background playback -->
+        <service
+            android:name=".core.audio.PlaybackService"
+            android:foregroundServiceType="mediaPlayback"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="androidx.media3.session.MediaSessionService" />
+            </intent-filter>
+        </service>
 
     </application>
 
