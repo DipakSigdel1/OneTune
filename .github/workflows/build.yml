@@ -7,6 +7,7 @@ on:
     branches: [ "main", "master" ]
 
 env:
+  ACTIONS_ALLOW_NODE20: "true"
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
@@ -29,7 +30,7 @@ jobs:
         gradle-version: '8.7'
 
     - name: Build Debug APK
-      run: gradle assembleDebug --stacktrace --info
+      run: gradle assembleDebug --stacktrace --full-stacktrace
 
     - name: Upload Debug APK Artifact
       uses: actions/upload-artifact@v4
